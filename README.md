@@ -39,49 +39,16 @@ Getting the App Running
 Installing Python Packages and getting the app running is just like eating chocolate.
 
             cd /path/where/you/want/your/project
-            git clone git@bitbucket.org:verdanmahmood/django-url-shortener.git
-            cd django-url-shortener/
+            git clone git@bitbucket.org:verdanmahmood/django-url-reporter.git
+            cd django-url-reporter/
             
-Packages will be installed with a shell command **install-dev**
-This command installs the packages in the requirement file, runs the syncdb and migrate commands itself.
+Packages can be installed using pip command.
+This command installs the packages in the requirement file.
             
-            ./url_shortner.sh install-dev
+            pip install -r requirements.txt
             
 Start the Server
             
             python manage.py runserver
-            
-### Having Permissions Errors Running Shell Commands ? Try this: 
-            cd /path/to/project
-            chmod u+rwx url_shortner.sh
-            
-            
-Loading the Words Database
---------------------------
-            
-Secret words are placed in the file in fixtures directory in the repository.
-You can load the words in the database by two ways.
-
-from custom management command:
-
-            python manage.py upload_words
-            
-or, by using a shell command.
-            
-            ./url_shortner.sh load-words
-            
-Running the Tests
------------------
-            
-Tests can also be run using shell command:
-
-            ./url_shortner.sh tests
-            
-Future Plans
-------------
-
-Added IP address field in the Tiny URL model to keep track of the users and other reports related stuff.
-Created Generic Models Manager.
-Base presenter for future implementations of content renderings.
-            
+                      
             
