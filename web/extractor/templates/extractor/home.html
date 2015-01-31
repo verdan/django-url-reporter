@@ -1,0 +1,40 @@
+{% extends 'web/base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            {% include 'web/_base_form.html' with form=url_form submit_button_text='Generate Report' submit_button_class='btn-lg' %}
+        </div>
+    </div>
+    <br>
+    {% if report %}
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <p><strong>Title:</strong> {{ report.title }}</p>
+
+                <p><strong>Size:</strong> {{ report.size }}</p>
+
+                <p><strong>Total Words:</strong> {{ report.words_count }}</p>
+
+                <p><strong>Total Unique Words:</strong> {{ report.unique_words_count }}</p>
+
+                <p><strong>Most Common Words:</strong> {% for word in report.common_words %}{{ word }}, {% endfor %}</p>
+
+                <p>
+                    <strong>Links that appear in page:</strong>
+                    {% for link in report.links %}
+                        <p class="small">{{ link }}</p>
+                    {% endfor %}
+                </p>
+
+                <p>
+                    <strong>Metas:</strong>
+                    {% for meta in report.metas %}
+                        <p class="small">{{ meta }}</p>
+                    {% endfor %}
+                </p>
+
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
